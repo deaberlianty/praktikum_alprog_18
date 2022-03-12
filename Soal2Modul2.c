@@ -15,7 +15,7 @@ int main() {
     }
 
     nilaiAbsensi = ((float)100 / 15) * jumlahAbsensi;
-    nilaiTugas = 0;
+    totalNilaiTugas = 0;
 
     for (int i = 1; i <= 3; i++) {
         printf("Nilai tugas ke-%d: ", i);
