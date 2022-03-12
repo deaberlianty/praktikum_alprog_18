@@ -22,7 +22,6 @@ int main() {
         scanf("%f", &nilaiTugas);
         totalNilaiTugas += nilaiTugas;
     }
-
     totalNilaiTugas /= 3;
 
     printf("Nilai Quiz: ");
