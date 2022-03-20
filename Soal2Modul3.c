@@ -8,13 +8,13 @@ int main ()
 {
 	int list ; 
 	menu :
-	printf ("-> PROGRAM OPERASI MATEMATIKA PADA MATRIKS MODUL 3 SOAL 2 <- \n") ;
-	printf ("=============================================================\n") ;
-	printf ("Silakan tentukan operasi yang akan dilakukan! \n") ;
-	printf( " 1. Penjumlahan\n 2. Perkalian\n 3. Tranpose\n 0. Keluar dan Selesai\n") ;
-	printf ("Masukkan Pilihan Anda (0/1/2/3): ") ;
+	printf (" = PROGRAM OPERASI MATEMATIKA PADA MATRIKS MODUL 3 SOAL 2 = \n ") ;
+	printf (" =============================================================\n ") ;
+	printf (" Silakan tentukan operasi yang akan dilakukan! \n") ;
+	printf( " 1. Penjumlahan\n 2. Perkalian\n 3. Tranpose\n 0. Keluar dan Selesai\n ") ;
+	printf (" Masukkan Pilihan Anda (0/1/2/3): ") ;
 	scanf ("%d", &list) ;
-	printf ("************************************************************ \n") ;
+	printf (" ************************************************************ \n ") ;
 	printf ("\n") ; 
 
 switch (list)
@@ -22,23 +22,23 @@ switch (list)
 	case 1 : penjumlahan () ; goto menu ; break ;
 	case 2 : perkalian () ; goto menu ; break ;
 	case 3 : tranpose () ; goto menu ; break ;
-	case 0 : printf ("Terima Kasih! Created by Kelompok 18 :)") ; break ;
+	case 0 : printf (" Terima Kasih! Created by Kelompok 18 ") ; break ;
 	default :
-		printf ("Pilihan yang anda tentukan salah! Silakan pilih angka 0-5 saja! \n") ; 
-		printf ("*************************************************************** \n") ;
+		printf (" Pilihan yang anda tentukan salah! Silakan pilih angka 0-3 saja! \n ") ; 
+		printf (" *************************************************************** \n ") ;
 		printf ("\n") ; goto menu ; break ;
 	}
 }
 
 int penjumlahan () 
 {   
-  printf ("Operasi Penjumlahan Matriks \n") ;
-  printf ("Masukkan Angka: \n");int i, j, m, n, matriks1[10][10], matriks2[10][10], hasil[10][10] ;
-  printf ("Masukkan jumlah baris matriks: ") ;
+  printf (" Operasi Penjumlahan Matriks \n ") ;
+  printf (" Masukkan Angka : \n "); int i, j, m, n, matriks1[10][10], matriks2[10][10], hasil[10][10] ;
+  printf (" Masukkan jumlah baris matriks : ") ;
   scanf ("%d", &m) ;
-  printf ("Masukkan jumlah kolom matriks: ") ;
+  printf (" Masukkan jumlah kolom matriks : ") ;
   scanf ("%d", &n) ;
-  printf ("Masukkan elemen matrix pertama: \n") ;
+  printf (" Masukkan elemen matriks pertama : \n ") ;
   for (i = 0; i < m; i++)
   {
     for (j = 0; j < n; j++)
@@ -46,7 +46,7 @@ int penjumlahan ()
       scanf ("%d", &matriks1[i][j]) ;
     }
   }
-  printf ("Masukkan elemen matrix kedua: \n") ;
+  printf (" Masukkan elemen matriks kedua : \n") ;
   for (i = 0; i < m; i++)
   {
     for (j = 0; j < n; j++)
@@ -54,7 +54,7 @@ int penjumlahan ()
       scanf ("%d", &matriks2[i][j]) ;
     }
   }
-  printf ("hasil penjumlahan matrix: \n") ;
+  printf (" Hasil penjumlahan matriks : \n ") ;
   for (i = 0; i < m; i++)
   {
     for (j = 0; j < n; j++)
@@ -69,8 +69,8 @@ int penjumlahan ()
 
 int perkalian ()
 {
-  printf ("Operasi Perkalian Matriks \n") ;
-  printf ("Masukkan Angka: \n") ;
+  printf (" Operasi Perkalian Matriks \n ") ;
+  printf (" Masukkan Angka : \n ") ;
   int matriks1[10][10], matriks2[10][10], hasil[10][10] ;
   int i, j, k, m, n, p, q, jumlah = 0 ;
   printf ("Masukkan jumlah baris matriks pertama : ") ;
@@ -113,7 +113,7 @@ int perkalian ()
         jumlah = 0 ;
       }
     }
-    printf ("Hasil perkalian matriks: \n") ;
+    printf (" Hasil perkalian matriks : \n ") ;
     for (i = 0; i < m; i++)
 	{
       for (j = 0; j < n; j++)
@@ -128,16 +128,16 @@ int perkalian ()
 
 int tranpose ()
 {
-  printf ("Operasi Tranpose Matriks \n") ;
-  printf ("Masukkan Angka: \n") ;
+  printf (" Operasi Tranpose Matriks \n ") ;
+  printf (" Masukkan Angka : \n ") ;
   int i, j, m, n ;
   int matriks[10][10] ;
   int transpose[10][10] ;
-  printf ("Masukkan jumlah baris matriks: ") ;
+  printf (" Masukkan jumlah baris matriks : ") ;
   scanf ("%d", &m) ;
-  printf ("Masukkan jumlah kolom matriks: ") ;
+  printf (" Masukkan jumlah kolom matriks : ") ;
   scanf ("%d", &n) ;
-  printf ("Masukkan elemen matriks:\n") ;
+  printf (" Masukkan elemen matriks :\n ") ;
   for (i = 0; i < m; i++)
   {
     for (j = 0; j < n; j++)
@@ -152,7 +152,7 @@ int tranpose ()
       transpose[j][i] = matriks[i][j] ;
     } 
   }
-  printf ("Hasil transpose matriks:\n") ;
+  printf (" Hasil transpose matriks :\n ") ;
   for (i = 0; i < n; i ++)
   {
     for (j = 0; j < m; j++)
