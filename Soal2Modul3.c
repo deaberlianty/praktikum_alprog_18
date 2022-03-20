@@ -24,7 +24,7 @@ switch (list)
 	case 3 : tranpose () ; goto menu ; break ;
 	case 0 : printf (" Terima Kasih! Created by Kelompok 18 ") ; break ;
 	default :
-		printf (" Pilihan yang anda tentukan salah! Silakan pilih angka 0-3 saja! \n ") ; 
+		printf (" Pilihan yang Anda salah! Silakan pilih angka 0-3 saja! \n ") ; 
 		printf (" *************************************************************** \n ") ;
 		printf ("\n") ; goto menu ; break ;
 	}
@@ -33,7 +33,8 @@ switch (list)
 int penjumlahan () 
 {   
   printf (" Operasi Penjumlahan Matriks \n ") ;
-  printf (" Masukkan Angka : \n "); int i, j, m, n, matriks1[10][10], matriks2[10][10], hasil[10][10] ;
+  printf (" Masukkan Angka : \n ") ; 
+  int i, j, m, n, matriks1[10][10], matriks2[10][10], hasil[10][10] ;
   printf (" Masukkan jumlah baris matriks : ") ;
   scanf ("%d", &m) ;
   printf (" Masukkan jumlah kolom matriks : ") ;
