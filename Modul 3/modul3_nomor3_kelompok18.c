@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <windows.h>
+#include <conio.h>
 
 void pembatas(){
     char pembatas[] = "---------------------------------------------------------\n";
@@ -14,6 +15,27 @@ void pembatas(){
 
 void clear(){
     system("cls | clear");
+}
+
+int validasi_integer()
+{
+    int input = 0; 
+    int ch;
+    do {
+        ch = getch();
+  
+        if (ch >= 48 && ch <= 57) {
+            printf("%c", ch);
+  
+            input = input * 10 + (ch - 48);
+        }
+
+        if (ch == 13)
+            break;
+
+    }while(1);
+  
+    return (input);
 }
 
 void sort_array(int banyak_data, int input_nilai[]){
@@ -125,7 +147,7 @@ int main(){
     pembatas();
 
     printf("Masukkan Banyak Bilangan yang Ingin Di Input : ");
-    scanf("%d", &banyak_data);
+    banyak_data = validasi_integer();
 
     int input_nilai[*data];
 
@@ -136,8 +158,11 @@ int main(){
 
     for(i = 0 ; i < *data ; i++){
         no_bilangan++;
+
         printf("Masukkan Bilangan Ke-%d : ", no_bilangan);
-        scanf("%d", &input_nilai[i]);
+        input_nilai[i] = validasi_integer();
+
+        printf("\n");
     }
 
     pembatas();
