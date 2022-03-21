@@ -1,3 +1,8 @@
+// I Komang Cleon Kalea
+// 2105551090
+// Kelompok 18
+// Modul 3 no.3
+
 #include <stdio.h>
 #include <math.h>
 #include <windows.h>
