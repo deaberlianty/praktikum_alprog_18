@@ -23,7 +23,7 @@ int main() {
 	koreksi(&list,"Masukkan Pilihan Anda (0/1/2/3/4/5): ");
 	printf("***************************************** \n");
 	printf("\n");
-	system("cls");
+	system("cls | clear");
 
 
 	switch(list) {
@@ -40,7 +40,7 @@ int main() {
 	}
 	printf ("Ingin mencoba untuk menginput kembali? (Y/T): "); 
 			scanf("%s", &ulang);
-		system("cls");
+		system("cls | clear");
 	}
 	while (ulang=='Y' || ulang=='y');
 		printf ("Terimakasih! Silakan tekan enter untuk keluar! \n");
