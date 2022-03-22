@@ -22,7 +22,7 @@ int main() {
 	koreksi(&list,"Masukkan Pilihan Anda (0/1/2/3/4/5): ");
 	printf("***************************************** \n");
 	printf("\n");
-	system("cls");
+	system("cls | clear");
 
 	switch(list) {
 		case 1: penjumlahan(); break;
@@ -38,7 +38,7 @@ int main() {
 	}
 		printf ("Ingin mencoba untuk menginput kembali? (Y/T): "); 
 			scanf("%s", &ulang);
-		system("cls");
+		system("cls | clear");
 	}
 	while (ulang=='Y' || ulang=='y');
 		printf ("Terimakasih! Silakan tekan enter untuk keluar! \n");
@@ -129,7 +129,7 @@ int check(int *var) {
 //Validasi Inputan Angka
 void koreksi(int *var, char *prompt) {
 	while(1){
-		printf(prompt);
+		printf("%s", prompt);
 		if(check(var))
 			break;
 		printf("Hanya Menerima Input Berupa ANGKA! \n");
@@ -138,7 +138,7 @@ void koreksi(int *var, char *prompt) {
 }
 
 int validasi() {
-	int angka;
+    int angka;
     char karakter;
     scanf("%d%c", &angka, &karakter);
     if(karakter != '\n' || angka<0){
