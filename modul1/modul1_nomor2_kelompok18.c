@@ -174,7 +174,7 @@ void koreksi(int *var, char *prompt) {
 }
 
 int validasi() {
-	float angka;
+    float angka;
     char karakter;
     scanf("%f%c", &angka, &karakter);
     if(karakter != '\n' || angka<0){
