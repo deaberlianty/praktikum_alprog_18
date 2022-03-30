@@ -17,25 +17,24 @@ void clear(){
     system("cls | clear");
 }
 
-int validasi_integer()
-{
-    int input = 0; 
-    int ch;
-    do {
-        ch = getch();
-  
-        if (ch >= 48 && ch <= 57) {
-            printf("%c", ch);
-  
-            input = input * 10 + (ch - 48);
-        }
+int validasi_integer() {
+    int bilangan;
+    char ch;
 
-        if (ch == 13)
-            break;
+    scanf("%d%c", &bilangan, &ch);
 
-    }while(1);
-  
-    return (input);
+    if(ch != '\n' || bilangan < 0){
+        printf("\n\nInput yang dimasukkan tidak berupa angka!\n", bilangan, ch);
+
+        pembatas();
+        printf("\nMasukkan Banyak Bilangan yang Ingin Di Input : ");
+
+        fflush(stdin);
+        validasi_integer();
+        
+    }else{
+        return bilangan;
+    }
 }
 
 void sort_array(int banyak_data, int input_nilai[]){
