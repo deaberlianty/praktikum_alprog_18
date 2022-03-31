@@ -3,10 +3,45 @@
 #include <conio.h>
 #include<stdlib.h>
 
+void zodiak();
+
+int clean();
+
+int main(){
+	char pilihan, enterCheck;
+	system("cls");
+	printf("========================================================\n");
+	printf("|                  PROGRAM ZODIAK                      |\n");
+	printf("========================================================\n");
+	printf("|       1. Zodiak                                      |\n");
+	printf("|       2. Keluar                                      |\n");
+	printf("========================================================\n"); 
+	do{
+		printf("Masukan pilihan anda: ");
+	    if(((scanf(" %c%c", &pilihan, &enterCheck)) != 2 || enterCheck != '\n') && clean()){ 
+			printf("Inputan salah! Mohon hanya memasukkan angka dari 1 atau 2\n\n"); 
+		}else{
+			if(pilihan == '1'){ 
+				 zodiak();
+				break; 
+			}
+			else if(pilihan == '2'){ 
+				 exit(0);
+			}else{ 
+				printf("Inputan salah! Mohon hanya memasukkan angka dari 1 hingga 2\n\n"); 
+			}
+		}
+		
+	}while(1);
+	return 0;
+}
+
+
 void zodiak(){
-	char tanggal;
+	int tanggal;
     char bulan[10];
     char *bintang;
+    
 	printf("========================================================\n");
 	printf("|        Bulan dan tanggal pada kalender masehi        |\n");
 	printf("========================================================\n");
@@ -149,27 +184,9 @@ void zodiak(){
     	printf("\tzodiak anda adalah %s\n", bintang);
         printf("========================================================\n");
 }
-       
 
-
-int main(){
-	int pilihan;
-	printf("========================================================\n");
-	printf("|                  PROGRAM ZODIAK                      |\n");
-	printf("========================================================\n");
-    printf("|       1. Zodiak                                      |\n");
-    printf("|       2. Keluar                                      |\n");
-    printf("========================================================\n");   
-    printf("Masukan pilihan anda: ");
-    scanf("%d",&pilihan);
-        
-    system("cls");
-    if(pilihan == 1){ 
-        zodiak(); 	
-	}else if(pilihan == 2){
-		exit(1);
-	}else{
-		printf("Masukan input dengan benar");
-	}
-	return 0;
+int clean(){
+	while(getchar() != '\n'); // apabila saat validasi inputan dilakukan terdapat kesalahan inputan,
+	// maka fungsi ini akan membersihkan kesalahan inputan tersebut agar variabel dapat menampung inputan yang baru
+	return 1;
 }
