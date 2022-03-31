@@ -1,19 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 void binerKeDesimal();
 
 int konversiBinerKeDesimal(char biner[]);
 
 void biner();
 
-
-
-int clean(){
-	while(getchar() != '\n'); // apabila saat validasi inputan dilakukan terdapat kesalahan inputan,
-	// maka fungsi ini akan membersihkan kesalahan inputan tersebut agar variabel dapat menampung inputan yang baru
-	return 1;
-}
+int clean();
 
 int main(){
 	char pilihan,enterCheck, ulang; // variabel pilihan untuk menampung hasil pilihan menu oleh user. variabel enterCheck untuk validasi inputan
@@ -172,4 +167,10 @@ int konversiBinerKeDesimal(char biner[]){
 	}
 
 	return desimal; 
+}
+
+int clean(){
+	while(getchar() != '\n'); // apabila saat validasi inputan dilakukan terdapat kesalahan inputan,
+	// maka fungsi ini akan membersihkan kesalahan inputan tersebut agar variabel dapat menampung inputan yang baru
+	return 1;
 }
