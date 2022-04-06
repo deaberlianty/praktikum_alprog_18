@@ -127,10 +127,10 @@ void binerKeDesimal(){
 	system("cls"); // clear screen
 
 	do{
-    printf("\n+-----------------------------------------------+\n");
+        printf("\n+-----------------------------------------------+\n");
 	printf("|                   KELOMPOK 18                   |\n");
 	printf("+-------------------------------------------------+\n");
-	printf("|                PROGRAM KONVERSI                 |\n");
+	printf("|                 biner ke desimal                |\n");
 	printf("+-------------------------------------------------+\n\n\n");
 
 		valid = 1; 
