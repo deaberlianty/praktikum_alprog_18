@@ -6,7 +6,7 @@ void binerKeDesimal();
 
 int konversiBinerKeDesimal(char biner[]);
 
-void biner();
+void desimalkebiner();
 
 int clean();
 
@@ -14,7 +14,7 @@ int main(){
 	char pilihan,enterCheck, ulang; // variabel pilihan untuk menampung hasil pilihan menu oleh user. variabel enterCheck untuk validasi inputan
 	system("cls"); // clear screen
 
-    printf("\n+-------------------------------------------------+\n");
+    	printf("\n+--------------------------------------------------+\n");
 	printf("|                   KELOMPOK 18                   |\n");
 	printf("+-------------------------------------------------+\n");
 	printf("|                PROGRAM KONVERSI                 |\n");
@@ -29,13 +29,13 @@ int main(){
 	printf("    +----------------------------------------+\n\n\n");
 
 	do{
-		printf("Masukkan pilihan: ");
+		printf("\tMasukkan pilihan: ");
 		if(((scanf(" %c%c", &pilihan, &enterCheck)) != 2 || enterCheck != '\n') && clean()){ 
 			printf("Inputan salah! Mohon hanya memasukkan angka dari 1 hingga 3\n\n"); 
 		}
 		else{
 			if(pilihan == '1'){ 
-				biner();
+				desimalkebiner();
 				break;
 			}
 			else if(pilihan == '2'){ 
@@ -55,19 +55,64 @@ int main(){
 	return 0; // menutup program
 }
 
-void biner(){
+void desimalkebiner(){
 	int angka_desimal, q, biner[10];
-	printf("Masukan angka desimal: ");
-	scanf("%d", &angka_desimal);
+	char enterCheck, pilihan;
+	system("cls");
+	printf("\n+----------------------------------------------+\n");
+	printf("|                   KELOMPOK 18                   |\n");
+	printf("+-------------------------------------------------+\n");
+	printf("|                 desimal ke biner                |\n");
+	printf("+-------------------------------------------------+\n\n\n");
+	do{
+		printf("\tMasukan angka desimal: ");
+		if(((scanf("%d%c", &angka_desimal, &enterCheck)) != 2 || enterCheck != '\n') && clean()){ 
+			printf("\tinputan tidak dapat berupa huruf \n\n");
+		}
+		else{
+			if(angka_desimal < 0 ){ 
+				printf("\tangka desimal tidak bisa negatif\n\n"); 
+			}else{ // selain dari itu maka
+				break; // keluar dari perulangan apabila inputan benar
+			}
+		}
+	}while(1);
 		
 	for(q=0; angka_desimal>0; q++){
 		biner[q] = angka_desimal%2;
 		angka_desimal = angka_desimal/2;
 	}
-	printf("Hasil konversi biner: ");
+	printf("\tHasil konversi biner: ");
 	for(q=q-1 ;q>=0 ;q--) {
 		printf("%d",biner[q] );
 	}
+	printf("\n========================================================\n");
+    printf("\t1. Ulang\n"); 
+   	printf("\t2. Menu utama\n"); 
+   	printf("\t3. keluar\n");
+	do{ 
+		printf("\n\tMasukkan pilihan: ");
+		if(((scanf(" %c%c", &pilihan, &enterCheck)) != 2 || enterCheck != '\n') && clean()){ 
+			printf("Inputan salah! Tekan 1 untuk mengulang, 2 untuk kembali ke menu, dan 3 untuk menutup program.\n\n"); 
+		}
+		else{
+			if(pilihan == '1'){ 
+				desimalkebiner();
+				break; 
+			}
+			else if(pilihan == '2'){ 
+				main(); 
+				break; 
+			}
+			else if(pilihan == '3'){ 
+				exit(0); 
+				break; 
+			}
+			else{ 
+				printf("Inputan salah! Tekan 1 untuk mengulang, 2 untuk kembali ke menu, dan 3 untuk menutup program.\n\n"); 
+			}
+		}
+	}while(1);
 }
 
 void binerKeDesimal(){
@@ -89,7 +134,7 @@ void binerKeDesimal(){
 	printf("+-------------------------------------------------+\n\n\n");
 
 		valid = 1; 
-		printf("Masukkan bilangan biner: ");
+		printf("\tMasukkan bilangan biner: ");
 		scanf(" %[^\n]s",&biner); 
 
 		for(i=0; i<strlen(biner); i++){ 
@@ -109,27 +154,31 @@ void binerKeDesimal(){
 
 	printf("\tBilangan desimal: %d",konversiBinerKeDesimal(biner)); 
 
-	printf("\n\nApakah Anda ingin melakukan konversi bilangan desimal ulang?\nTekan Y untuk mengulang, N untuk kembali ke menu, dan K untuk menutup program.");
-	do{
+	printf("\n========================================================\n");
+    	printf("1. Ulang\n"); 
+   	printf("2. Menu utama\n"); 
+   	printf("3. keluar\n"); 
+	
+	do{ 
 		printf("\nMasukkan pilihan: ");
 		if(((scanf(" %c%c", &pilihan, &enterCheck)) != 2 || enterCheck != '\n') && clean()){ 
-			printf("Inputan salah! Tekan Y untuk mengulang, N untuk kembali ke menu, dan K untuk menutup program.\n\n"); 
+			printf("Inputan salah! Tekan 1 untuk mengulang, 2 untuk kembali ke menu, dan 3 untuk menutup program.\n\n"); 
 		}
 		else{
-			if(pilihan == 'Y' || pilihan == 'y'){ 
-				binerKeDesimal(); 
+			if(pilihan == '1'){ 
+				binerKeDesimal();
 				break; 
 			}
-			else if(pilihan == 'N' || pilihan == 'n'){ 
+			else if(pilihan == '2'){ 
 				main(); 
 				break; 
 			}
-			else if(pilihan == 'K' || pilihan == 'k'){ 
+			else if(pilihan == '3'){ 
 				exit(0); 
 				break; 
 			}
 			else{ 
-				printf("Inputan salah! Tekan Y untuk mengulang, N untuk kembali ke menu, dan K untuk menutup program.\n\n"); 
+				printf("Inputan salah! Tekan 1 untuk mengulang, 2 untuk kembali ke menu, dan 3 untuk menutup program.\n\n"); 
 			}
 		}
 	}while(1);
