@@ -141,7 +141,7 @@ void towerHanoiIteratif(){
 
 	system("cls");  
 	printf("==================================================================\n");
-	printf("|                     Hanoi rekrusif                             |\n");
+	printf("|                     Hanoi iteratif                             |\n");
 	printf("==================================================================\n");
 		
 	do{
