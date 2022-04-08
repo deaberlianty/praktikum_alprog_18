@@ -87,7 +87,7 @@ void desimalkebiner(){
 		printf("%d",biner[q] );
 	}
 	printf("\n\n========================================================\n");
-    printf("\t1. Ulang\n"); 
+    	printf("\t1. Ulang\n"); 
    	printf("\t2. Menu utama\n"); 
    	printf("\t3. keluar\n");
 	do{ 
@@ -157,7 +157,7 @@ void binerKeDesimal(){
 	printf("\tBilangan desimal: %d\n",konversiBinerKeDesimal(biner)); 
 
 	printf("\n========================================================\n");
-    printf("1. Ulang\n"); 
+    	printf("1. Ulang\n"); 
    	printf("2. Menu utama\n"); 
    	printf("3. keluar\n"); 
 	
