@@ -108,7 +108,9 @@ void perhitungan_kubus(){
 	
 	printf("\tLuas permukaan    : %d\n", b.permukaan_kubus);
 	
-	b.volume = b.sisi_kubus;
+	b.sisi_kubus = sisi;
+	
+	b.volume = b.sisi_kubus*b.sisi_kubus*b.sisi_kubus;
 	
 	printf("\tVolume            : %d\n", b.volume);
 	
@@ -116,9 +118,8 @@ void perhitungan_kubus(){
 	printf("|                 ukuran memori                        |\n");
 	printf("========================================================\n");
 	
-//	printf("\n Ukuran memori dari struct kubus : %d byte\n", sizeof(kubus));
-//	printf("\n Ukuran memori dari union kubus  : %d byte\n", sizeof(kubus2));
-	
+	printf("\n Ukuran memori dari struct kubus : %d byte\n", sizeof(a));
+	printf("\n Ukuran memori dari union kubus  : %d byte\n", sizeof(b));
 	printf("\n=========================================================\n");
     printf("|         1. Ulang                                      |\n"); 
     printf("|         2. Menu utama                                 |\n"); 
