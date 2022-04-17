@@ -2,10 +2,14 @@
 #include <string.h> 
 #include <conio.h>
 #include<stdlib.h>
+#include <ctype.h>
 
 void zodiak();
 
 int clean();
+
+int validasi_string(char nama[20], int n);
+
 
 void penutup();
 
@@ -44,10 +48,11 @@ int main(){
 
 void zodiak(){
 	int tanggal;
-    char bulan[10];
+    char bulan[225];
     char *bintang;
     char validasi;
     int pilihan;
+    int n;
     system("cls");
 	printf("========================================================\n");
 	printf("|        Bulan dan tanggal pada kalender masehi        |\n");
@@ -85,127 +90,141 @@ void zodiak(){
 	}while(1);
     
     
-    
- 	printf("        Masukan bulan: ");
-    	scanf("%s", &bulan);
 	
+	do{
+		do{
+ 			printf("        Masukan bulan: ");
+    		scanf(" %[^\n]s", &bulan);
+    
+    		n = strlen(bulan);
+    		bulan[n] = '\0';
+    
+    		if(validasi_string(bulan, n)){
+    			break;
+			}else{
+			printf("\ttidak dapat menginputkan angka\n");
+			}	
+		}while(1);
+		
 	if ((strcmp(bulan, "Januari") == 0) || (strcmp(bulan, "januari") == 0))  {
     		if (tanggal >= 1 && tanggal <= 19) {
-                bintang = "Capricorn";	
+                bintang = "Capricorn";
+				break;	
             } else if (tanggal >= 20 && tanggal <= 31) {
                 bintang = "Aquarius";
-            } else {
-                printf("\tTanggal tidak sampai %d\n", tanggal);
-                bintang = "-";
-            }
+                break;
+            } 
 
-   	 }else if ((strcmp(bulan, "Februari") == 0) || (strcmp(bulan, "februari") == 0)) {
+    	}else if ((strcmp(bulan, "Februari") == 0) || (strcmp(bulan, "februari") == 0)) {
         	if (tanggal >= 1 && tanggal <= 18) {
-                bintang = "Aquarius";	
+                bintang = "Aquarius";
+				break;	
             } else if (tanggal >= 19 && tanggal <=28) {
                 bintang = "Pisces";
-            } else {
-                printf("\tTanggal tidak sampai %d\n", tanggal);
-                bintang = "-";
-            }
+                break;
+            }  else{
+            	bintang = "Tanggal 29-31 tidak ada pada bulan ini";
+            	break;
+			}
     	} else if ((strcmp(bulan, "Maret") == 0) || (strcmp(bulan, "maret") == 0))  {
         	if (tanggal >= 1 && tanggal <= 20) {
                 bintang = "Pisces";	
+                break;
             } else if (tanggal >= 21 && tanggal <= 31) {
                 bintang = "Aries";
-            } else {
-                printf("\tTanggal tidak sampai %d\n", tanggal);
-                bintang = "-";
-            }
+                break;
+            } 
     	} else if ((strcmp(bulan, "April") == 0) || (strcmp(bulan, "april") == 0)) {
             if (tanggal >= 1 && tanggal <= 19) {
                 bintang = "Aries";	
+                break;
             } else if (tanggal >= 20 && tanggal <=30) {
                 bintang = "Taurus";
-            } else {
-                printf("\tTanggal tidak sampai %d\n", tanggal);
-                bintang = "-";
-            }
+                break;
+            }  else{
+            	bintang = "Tanggal 31 tidak ada pada bulan ini";
+            	break;
+			}
     	} else if ((strcmp(bulan, "Mei") == 0) || (strcmp(bulan, "mei") == 0)) {
             if (tanggal >= 1 && tanggal <= 20) {
                 bintang = "Taurus";	
+                break;
             } else if (tanggal >= 21 && tanggal <= 31 ) {
                 bintang = "Gemini";
-            } else {
-                printf("\tTanggal tidak sampai %d\n", tanggal);
-                bintang = "-";
-            }
+                break;
+            } 
     	} else if ((strcmp(bulan, "Juni") == 0) || (strcmp(bulan, "juni") == 0))  {
             if (tanggal >= 1 && tanggal <= 20) {
                 bintang = "Gemini";	
+                break;
             } else if (tanggal >= 21 && tanggal <= 30) {
                 bintang = "Cancer";
-            } else {
-                printf("\tTanggal tidak sampai %d\n", tanggal);
-                bintang = "-";
-            }
-	} else if ((strcmp(bulan, "Juli") == 0) || (strcmp(bulan, "juli") == 0))  {
+                break;
+            }  else{
+            	bintang = "Tanggal 31 tidak ada pada bulan ini";
+            	break;
+			}
+		} else if ((strcmp(bulan, "Juli") == 0) || (strcmp(bulan, "juli") == 0))  {
             if (tanggal >= 1 && tanggal <= 22) {
                 bintang = "Cancer";	
+                break;
             } else if (tanggal >= 23 && tanggal <=31) {
                 bintang = "Leo";
-            } else {
-                printf("\tTanggal tidak sampai %d\n", tanggal);
-                bintang = "-";
-            }
+                break;
+            } 
     	} else if ((strcmp(bulan, "Agustus") == 0) || (strcmp(bulan, "agustus") == 0))  {
             if (tanggal >=1 && tanggal <= 22) {
                 bintang = "Leo";	
+                break;
             } else if (tanggal >= 23 && tanggal <= 31) {
                 bintang = "Virgo";
-            } else {
-                printf("\tTanggal tidak sampai %d\n", tanggal);
-                bintang = "-";
-            }
+                break;
+            } 
     	} else if ((strcmp(bulan, "September") == 0) || (strcmp(bulan, "september") == 0))  {
             if (tanggal >=1 && tanggal <= 22) {
                 bintang = "Virgo";	
+                break;
             } else if (tanggal >= 23 && tanggal <= 31) {
                 bintang = "Libra";
-            } else {
-                printf("\tTanggal tidak sampai %d\n", tanggal);
-                bintang = "-";
-            }
+                break;
+            } 
     	} else if ((strcmp(bulan, "Oktober") == 0) || (strcmp(bulan, "oktober") == 0))  {
             if (tanggal >= 1 && tanggal <= 22) {
                 bintang = "Libra";	
+                break;
             } else if (tanggal >= 23 && tanggal <=31) {
                 bintang = "Scorpio";
-            } else {
-                printf("\tTanggal tidak sampai %d\n", tanggal);
-                bintang = "-";
-            }
+                break;
+            } 
     	} else if ((strcmp(bulan, "November") == 0) || (strcmp(bulan, "november") == 0))  {
             if (tanggal >=1 && tanggal <=23 ) {
-                bintang = "Scorpio";	
+                bintang = "Scorpio";
+				break;	
             } else if (tanggal >= 23 && tanggal <=30) {
                 bintang = "Sagitarius";
-            } else {
-                printf("\tTanggal tidak sampai %d\n", tanggal);
-                bintang = "-";
-            }
+                break;
+            } else{
+            	bintang = "Tanggal 31 tidak ada pada bulan ini";
+            	break;
+			}
     	} else if ((strcmp(bulan, "Desember") == 0) || (strcmp(bulan, "desember") == 0))  {
             if (tanggal >= 1 && tanggal <= 21) {
                 bintang = "Sagitarius";	
+                break;
             } else if (tanggal >= 22 && tanggal <= 31) {
                 bintang = "Carpicorn";
-            } else {
-                printf("\tTanggal tidak sampai %d\n", tanggal);
-                bintang = "-";
-            }
-    	} else {
-            printf("\tFormat Bulan Salah\n");
-            bintang = "-";
+                break;
+            } 
+    	} else{
+    		printf("\n\tFormat bulan salah\n");
 		}
-	system("cls");
-	printf("=========================================================\n");
-	printf("\t  Tanggal %d dengan bulan %s\n",tanggal, bulan);
-    	printf("\t  zodiak anda adalah %s\n", bintang);
+	}while(1);
+	
+	
+		system("cls");
+		printf("=========================================================\n");
+		printf("\t  Tanggal %d dengan bulan %s\n",tanggal, bulan);
+    	printf("\t  zodiak : %s\n", bintang);
         printf("=========================================================\n");
         
         printf("\n=========================================================\n");
@@ -254,3 +273,18 @@ void penutup(){
 	printf("========================================================\n");
 	
 }
+
+int validasi_string(char nama[20], int n){
+	int i;
+	
+	for (i = 0; i < n; ++i){
+		if(isdigit(nama[i])){
+			return 0;
+		}else{
+			return 1;
+		}
+		
+	}
+}
+
+
