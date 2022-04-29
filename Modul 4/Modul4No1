@@ -3,12 +3,7 @@
 #include <string.h>
 
 struct gaji {
-    float gaji_total;
-    float gaji_pokok;
-	float gaji_lembur; 
-    float waktu_lembur; 
-	float waktu_pokok;
-	float total_waktu;
+    float gaji_total, gaji_pokok, gaji_lembur, waktu_lembur, waktu_pokok, total_waktu;
 } perhitungan_gaji;
 
 int validation();
