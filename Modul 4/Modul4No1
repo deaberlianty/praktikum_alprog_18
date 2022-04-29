@@ -1,5 +1,5 @@
-#include <stdio.h>			//library standar
-#include <stdlib.h>			//menkonversi string menjadi integer
+#include <stdio.h>			
+#include <stdlib.h>			
 #include <string.h>
 
 struct gaji {
@@ -16,16 +16,35 @@ void hitung();
 void rincian();
 void perulangan();
 void clean();
-    
+
+
+int main() {												
+	printf("\t\t===========================================================\n");
+    printf("\t\t|                       SELAMAT DATANG                    |\n");   
+    printf("\t\t|                    Program Hitung Gaji                  |\n");
+    printf("\t\t|                     Penggunaan struct                   |\n");
+	printf("\t\t===========================================================\n");
+    hitung();
+    return 0;
+}
+
 void hitung(){
-	printf("\t\t Masukkan Jam Kerja Anda: ");
+	printf("\t\t Masukkan Jam Kerja Anda (max=16 jam)= ");
 	validation(&perhitungan_gaji.total_waktu);
-	if(perhitungan_gaji.total_waktu>=8){
+	if((perhitungan_gaji.total_waktu>=8)&&(perhitungan_gaji.total_waktu<=16))
+	{
 		perhitungan_gaji.waktu_pokok = 8;
 		perhitungan_gaji.waktu_lembur = perhitungan_gaji.total_waktu - perhitungan_gaji.waktu_pokok;
 		perhitungan_gaji.gaji_pokok = 10625*8;
 		perhitungan_gaji.gaji_lembur = perhitungan_gaji.waktu_lembur * (10625*8);
-	}else{
+	}
+	else if(perhitungan_gaji.total_waktu>16)
+	{
+		printf("\t\t Jam kerja maksimal=16 jam, Harap masukkan sesuai ketentuan!");
+		perulangan();
+	}
+	else
+	{
 		perhitungan_gaji.waktu_pokok = perhitungan_gaji.total_waktu;
 		perhitungan_gaji.gaji_pokok= 10.625*perhitungan_gaji.total_waktu;
 		perhitungan_gaji.gaji_lembur = 0;
@@ -33,30 +52,31 @@ void hitung(){
 	perhitungan_gaji.gaji_total = perhitungan_gaji.gaji_pokok + perhitungan_gaji.gaji_lembur;
 	rincian();
 }
+
+
 void rincian(){
     system("cls || clear");
-	printf("\t\t===========================================================");
-	printf("\n\t\t|*|                     ***RINCIAN***                   |*|");
-	printf("\n\t\t|*|-----------------------------------------------------|*|");
-	printf("\n\t\t|*|\t\tWaktu kerja\t: %.2f\t\t\t|*|", perhitungan_gaji.total_waktu);
-	printf("\n\t\t|*|\t\tjam pokok\t: %.2f\t\t\t|*|", perhitungan_gaji.waktu_pokok);
-	printf("\n\t\t|*|\t\tJam lembur\t: %.2f\t\t\t|*|", perhitungan_gaji.waktu_lembur);
-	printf("\n\t\t|*|\t\tGaji pokok\t: %.3lf\t\t|*|", perhitungan_gaji.gaji_pokok);
-	printf("\n\t\t|*|-----------------------------------------------------|*|\n");
+	printf("\t\t==========================================================================");
+	printf("\n\t\t|*|                         ***RINCIAN***                              |*|");
+	printf("\n\t\t|*|--------------------------------------------------------------------|*|");
+	printf("\n\t\t|*|\t\tWaktu kerja\t\t\t: %.2f\t\t\t|*|", perhitungan_gaji.total_waktu);
+	printf("\n\t\t|*|\t\tjam pokok\t\t\t: %.2f\t\t\t|*|", perhitungan_gaji.waktu_pokok);
+	printf("\n\t\t|*|\t\tJam lembur\t\t\t: %.2f\t\t\t|*|", perhitungan_gaji.waktu_lembur);
+	printf("\n\t\t|*|\t\tGaji pokok\t\t\t: %.3lf\t\t|*|", perhitungan_gaji.gaji_pokok);
 	if(perhitungan_gaji.total_waktu>8){
-		printf("\n\t\t|*|\t\tRincian\t\t: 8*10.625 \t\t|*|\t");
-	printf("\n\t\t|*|-----------------------------------------------------|*|\n");
-		printf("\n\t\t|*|\t\tGaji lembur\t: %.3lf\t\t|*|\t", perhitungan_gaji.gaji_lembur);
-		printf("\n\t\t|*|\t\tRincian\t: waktu_lembur * 8*10.625\t|*|");
+		printf("\n\t\t|*|\t\tRincian gaji pokok\t\t: 8*10.625 \t\t|*|\t");
+	printf("\n\t\t|*|---------------------------------------------------------------------|*|\n");
+		printf("\n\t\t|*|\t\tGaji lembur\t\t\t: %.3lf\t\t|*|\t", perhitungan_gaji.gaji_lembur);
+		printf("\n\t\t|*|\t\tRincian total gaji\t\t: waktu_lembur*8*10.625 |*|");
 	}else{
-		printf("\n\t\t|*|\t\tRincian\t: waktu_pokok*10.625\t|*|");
-	printf("\n\t\t|*|-----------------------------------------------------|*|\n");
-		printf("\n\t\t|*|\t\tGaji lembur\t: %.3lf\t\t\t|*|\t", perhitungan_gaji.gaji_lembur);
+		printf("\n\t\t|*|\t\tRincian total gaji\t\t: waktu_pokok*8*10.625 |*|");
+		printf("\n\t\t|*|-----------------------------------------------------|*|\n");
+		printf("\n\t\t|*|\t\tGaji lembur\t\t\t: %.3lf\t\t\t|*|\t", perhitungan_gaji.gaji_lembur);
 	}
-	printf("\n\t\t|*|-----------------------------------------------------|*|\n");
-	printf("\n\t\t|*|\t\tTotal Gaji\t: %.3lf\t\t|*|\n", perhitungan_gaji.gaji_total);
-	printf("\n\t\t===========================================================\n");
+	printf("\n\t\t|*|\t\tTotal Gaji\t\t\t: %.3lf\t\t|*|\n", perhitungan_gaji.gaji_total);
+	printf("\n\t\t========================================================================\n");
 	perulangan();
+	
 }
 
 void perulangan() {
@@ -67,11 +87,11 @@ void perulangan() {
 		system("cls");
 		main();
 	}else if(strcmp(pilihan, "n")==0){
-	printf("\n\t\t|*|-----------------------------------------------------|*|\n");
-		printf("\n\t\t|*|\t================    Terima Kasih    ================\t|*|");
+		printf("\n\t\t|*|-----------------------------------------------------|*|\n");
+		printf("\n\t\t|*|================    Terima Kasih    =================|*|");
 		exit(0);
 	}else{
-	printf("\n\t\t|*|-----------------------------------------------------|*|\n");
+		printf("\n\t\t|*|-----------------------------------------------------|*|\n");
 		printf("\t\t|*|                #### 404 NOT FOUND ####            |*|\n");
 		printf("\t\t|*|                   Silahkan PILIH y/n              |*|\n");
 	printf("\n\t\t|*|-----------------------------------------------------|*|\n");
@@ -84,24 +104,12 @@ void perulangan() {
 void clean(){
 	while (getchar() != '\n');
 }
-
 int validation(float *var){
     if (scanf("%f", var) !=1){
-		clean();
+    	clean();
         printf("\t\tMohon maaf input SALAH!\n");
-        printf("\t\tSilakan Masukkan ulang (angka)\n");
-        printf("\t\tPilihan Anda: ");
+        printf("\t\tSilakan Masukkan ulang jam kerja berupa angka:");
         validation(var);
-    }
-    return 1;
-}
-
-int main() {												
-	printf("\t\t===========================================================\n");
-    printf("\t\t|                       SELAMAT DATANG                    |\n");   
-    printf("\t\t|                    Program Hitung Gaji                  |\n");
-    printf("\t\t|                     Penggunaan struct                   |\n");
-	printf("\t\t===========================================================\n");
-    hitung();
     return 0;
+}
 }
