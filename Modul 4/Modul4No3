@@ -1,0 +1,149 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdbool.h>
+#include <stdlib.h>
+
+char input_kata[1000];
+int palindrom(char input_kata[], int size);
+void tampilan(char input_kata[]);
+void print_totalkata(char *input_kata);
+int palindrom(char input_kata[], int size);
+void ulang();
+void clean();
+
+
+void print_totalkata(char *input_kata){
+	int panjang = strlen(input_kata);
+	char x[panjang];
+	int hitung =0;
+	int i, j;
+	int totalkata;
+	totalkata = strlen(input_kata);
+	FILE*file;
+	file=fopen("kamuskata.txt", "a");
+	printf("jumlah kata : %d\n", totalkata);
+	fprintf(file, "%s(%d)\t:", input_kata, totalkata);
+	for(i=0; i<panjang; i++){
+		bool sudah_dihitung = false;
+		for(j=0; j<hitung; j++)
+			if( tolower (input_kata[i])==  tolower (x[j])){
+				sudah_dihitung =  true;
+			} 
+		
+		if(sudah_dihitung){
+			continue;
+		}
+		int hitung =0;
+		for(j=0; j<panjang; j++){
+			if(tolower (input_kata[i])== tolower (input_kata[j])){
+				hitung++;
+			}
+		} 
+		printf("%c = %d\n", input_kata[i], hitung);
+		fprintf(file, "%c = %d ", input_kata[i], hitung);
+        x[hitung] = input_kata[i];
+    	hitung++;
+		
+	}
+	tampilan(input_kata);	
+}
+void tampilan( char input_kata[]){
+	FILE*file;
+ 	file=fopen("kamuskata.txt", "a");
+ 	
+	if(palindrom(input_kata, strlen(input_kata))==1){  
+		printf("Kata tersebut merupakan Palindrom");
+		fprintf(file, "\t : Kata tersebut merupakan Palindrom\n");
+	}else{
+		printf("Kata tersebut merupakan Bukan Palindrom");
+		fprintf(file, "\t : Kata tersebut merupakan bukan palindrom\n");
+	}
+	ulang();
+}
+int palindrom(char input_kata[], int size){
+	int i;
+	int status = 1; 
+
+	for(i=0; i<size; i++){ 
+		if(tolower(input_kata[i])== tolower (input_kata[size-1-i])){ 
+			continue;
+		}else{
+			status = 0; 
+			break;
+		}
+	}
+	return status;
+}
+
+void clean(){
+	while (getchar() != '\n');
+}
+
+void ulang(){
+	char pilihan, check;
+ 
+	printf("\n\nApakah Anda ingin mengulang program?\n");
+	printf("Inputkan y untuk mengulang dan t untuk menutup program\n");
+	do{
+		printf("\n(y/t): ");
+		if(((scanf("%c%c", &pilihan, &check)) != 2 || check != '\n')){
+			printf("Inputan yang anda masukkan salah!\n");
+			printf("Tekan y untuk mengulang dan t untuk menutup program.\n");
+		}else{
+			if(pilihan == 'Y' || pilihan == 'y'){
+ 				system("cls");
+ 				main();
+ 				break;
+			}else if(pilihan == 'T' || pilihan == 't'){
+ 				printf("\n==============Terimakasih==============!");
+ 				exit(1);
+ 				break;
+ 			}else{
+ 				printf("\nInputan yang anda masukkan salah!\n");
+ 				printf("Tekan y untuk mengulang dan t untuk menutup program\n");
+ 			}
+ 		}
+ 	}while(1);
+	system("cls");
+}
+
+int main(){
+	int length, i, digit=0 , alphabet = 0;
+	printf("\t\t===========================================================\n");
+    printf("\t\t|                       SELAMAT DATANG                    |\n");   
+    printf("\t\t|                    Program Hitung Kata                  |\n");
+    printf("\t\t|                         POLINDROM                       |\n");
+	printf("\t\t===========================================================\n");
+	printf("Masukkan kata: ");
+	gets(input_kata);
+	length = strlen(input_kata);
+
+ 	for (i=0;i<length; i++){
+ 		if (isdigit(input_kata[i]) != 0)
+ 		digit++;
+ 	}
+ 	
+ 	if(digit > 0){
+		printf ("Harap input kata dengan benar!\n");
+ 		printf ("ERROR: Pada kata tidak boleh terdapat angka!\n");
+ 	printf("\n\t\t|*|-------------------------------------------------------|*|\n");
+	printf("\t\t|*|                #### 404 NOT FOUND ####                |*|\n");
+	printf("\t\t|*|          Pada kata tidak boleh terdapat angka         |*|\n");
+	printf("\n\t\t|*|-------------------------------------------------------|*|\n");
+ 		main();
+ 	} 
+ 	fflush(stdin);
+ 	
+ 	if(length <= 1){ 
+
+ 	printf("\n\t\t|*|-------------------------------------------------------|*|\n");
+	printf("\t\t|*|                #### 404 NOT FOUND ####                |*|\n");
+	printf("\t\t|*|               Anda tidak memasukkan kata              |*|\n");
+	printf("\n\t\t|*|-------------------------------------------------------|*|\n");
+ 		main();
+	} 
+ 	fflush(stdin);
+ 	
+	print_totalkata(input_kata);
+	return 0;
+}
