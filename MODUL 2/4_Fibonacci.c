@@ -21,7 +21,9 @@ int main() {
             "||                                                     ||\n"
             "=========================================================\n\n");
 
-        printf("[1] Fibonacci\n\nPilih menu : ");
+        printf("[1] Fibonacci\n"
+               "[2] Keluar dari program\n\n"
+               "Pilih menu : ");
         scanf("%s", &input_menu);
         fflush(stdin);
         system("cls || clear");
@@ -42,7 +44,11 @@ int main() {
                 printf("%d ", fiboIteratif(i));
             }
             printf("\n");
-        } else {
+        } 
+        else if (strcmp(input_menu, "2") == 0) {
+            break;
+        }
+        else {
             printf("Menu tidak ditemukan !\n");
         }
 
