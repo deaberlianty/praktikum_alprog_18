@@ -23,7 +23,8 @@ int main() {
             "||                                                     ||\n"
             "=========================================================\n\n");
         printf(
-            "[1] Menentukan angsuran berdasarkan pokok pinjaman, bunga dan lama pinjaman\n\n"
+            "[1] Menentukan angsuran berdasarkan pokok pinjaman, bunga dan lama pinjaman\n"
+            "[2] Keluar dari program\n\n"
             "Pilih menu : ");
         scanf("%s", &input_menu);
         fflush(stdin);
@@ -74,6 +75,8 @@ int main() {
 
             printf("\n\nTotal bunga    : Rp. %.0f\n", totalBunga);
             printf("Total angsuran : Rp. %.0f\n", totalAngsuran);
+        } else if (strcmp(input_menu, "2") == 0) {
+            break;
         } else {
             printf("Menu tidak ditemukan !\n");
         }
@@ -98,7 +101,8 @@ void gotoxy(int x, int y) {
 
 void clearBuffer() {
     char c;
-    while ((c = getchar()) != '\n' && c != EOF) {}
+    while ((c = getchar()) != '\n' && c != EOF) {
+    }
 }
 
 int validasiInteger() {
