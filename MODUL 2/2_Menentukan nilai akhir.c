@@ -22,7 +22,8 @@ int main() {
             "=========================================================\n\n");
 
         printf(
-            "[1] Menentukan nilai akhir dan nilai angka mata kuliah\n\n"
+            "[1] Menentukan nilai akhir dan nilai angka mata kuliah\n"
+            "[2] Keluar dari program\n\n"
             "Pilih menu : ");
         scanf("%s", &input_menu);
         fflush(stdin);
@@ -32,8 +33,9 @@ int main() {
             printf("Jumlah absensi  :\n");
             jumlahAbsensi = validasiInteger();
 
-            if (jumlahAbsensi > 15) {
-                jumlahAbsensi = 15;
+            while (jumlahAbsensi > 15) {
+                printf("Maksimal absensi adalah 15\n");
+                jumlahAbsensi = validasiInteger();
             }
 
             nilaiAbsensi = ((float)100 / 15) * jumlahAbsensi;
@@ -60,6 +62,8 @@ int main() {
             nilaiAkhir = (nilaiAbsensi * 0.05) + (totalNilaiTugas * 0.2) + (nilaiQuiz * 0.15) + (nilaiUTS * 0.3) + (nilaiUAS * 0.3);
             system("cls || clear");
             printNilai(nilaiAkhir);
+        } else if (strcmp(input_menu, "2") == 0) {
+            break;
         } else {
             printf("Menu tidak ditemukan !\n");
         }
