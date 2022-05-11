@@ -73,7 +73,7 @@ void hasil_enkripsi_cypher(int cypher){
             }
             pergeseran_alphabets[i] = pergeseran_alphabets[i] - 32;
         }
-	}
+    }
 
     for(i = 0 ; i < 26 ; i++){
         printf("%c  ", pergeseran_alphabets[i]);
