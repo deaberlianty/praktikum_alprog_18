@@ -9,7 +9,7 @@ void pembatas(){
 }
 
 void clear(){
-    system("cls | clear");
+    system("cls || clear");
 }
 
 int validasi_integer() {
