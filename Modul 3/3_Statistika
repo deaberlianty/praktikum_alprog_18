@@ -131,49 +131,55 @@ void rumus_modus(int banyak_data, int input_nilai[]){
 
 int main(){
     int i;
+    int x = 0;
     int banyak_data;
     int no_bilangan = 0;
     int *data = &banyak_data;
+    
+    do{
+        clear();
 
-    clear();
+        printf("\n\n\t\t\tSTATISTIKA\n\n");
+        pembatas();
 
-    printf("\n\n\t\t\tSTATISTIKA\n\n");
-    pembatas();
+        printf("Masukkan Banyak Bilangan yang Ingin Di Input : ");
+        banyak_data = validasi_integer();
 
-    printf("Masukkan Banyak Bilangan yang Ingin Di Input : ");
-    banyak_data = validasi_integer();
+        int input_nilai[*data];
 
-    int input_nilai[*data];
+        clear();
 
-    clear();
+        printf("\n\n\t\t\tSTATISTIKA\n\n");
+        pembatas();
 
-    printf("\n\n\t\t\tSTATISTIKA\n\n");
-    pembatas();
+        for(i = 0 ; i < *data ; i++){
+            no_bilangan++;
 
-    for(i = 0 ; i < *data ; i++){
-        no_bilangan++;
+            printf("Masukkan Bilangan Ke-%d : ", no_bilangan);
+            input_nilai[i] = validasi_integer();
 
-        printf("Masukkan Bilangan Ke-%d : ", no_bilangan);
-        input_nilai[i] = validasi_integer();
+            printf("\n");
+        }
 
-        printf("\n");
-    }
+        pembatas();
 
-    pembatas();
+        printf("Bilangan Sebelum Sorting\n");
+        print_array(banyak_data, input_nilai);
 
-    printf("Bilangan Sebelum Sorting\n");
-    print_array(banyak_data, input_nilai);
+        printf("\nBilangan Setelah Sorting\n");
+        sort_array(banyak_data, input_nilai);
+        print_array(banyak_data, input_nilai);
 
-    printf("\nBilangan Setelah Sorting\n");
-    sort_array(banyak_data, input_nilai);
-    print_array(banyak_data, input_nilai);
+        pembatas();
 
-    pembatas();
+        rumus_mean(banyak_data, input_nilai);
+        rumus_median(banyak_data, input_nilai);
+        rumus_modus(banyak_data, input_nilai);
 
-    rumus_mean(banyak_data, input_nilai);
-    rumus_median(banyak_data, input_nilai);
-    rumus_modus(banyak_data, input_nilai);
-
-    pembatas();
+        pembatas();
+        printf("Apakah anda ingin menggunakan program lagi ? ( 1. Ya || 2. Tidak ) : ");
+        x = validasi_integer();
+    }while(x == 1);
+       
     return 0;
 }
